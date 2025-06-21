@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous">
+  </script>
+  
+    <title>URT Datos en Tiempo Real</title>
+    <link rel="shortcut icon" type="image/x-icon" href="css_files/img_files/newLogoURT.png">
+    <link rel="stylesheet" href="css_files/inicio.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
+    <link defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="css_files/Webdashboard.css">
+
+</head>
+<body><nav class="navbar navbar-expand-lg navbar-dark bg-transparent text-sm fixed-top"> 
+  <div class="container">
+    <!--Logo y nombre-->
+    <a class="navbar-brand fs-4" href="Home.html">
+      <img src="css_files/img_files/newLogoURT.png" 
+      alt="newLogoURT" style="width: 70px; height: auto;">URT</a>
+    <!--button-->
+    <button class="navbar-toggler shadow-none  border-0" type="button" data-bs-toggle="offcanvas" 
+    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!--Sidebar-->
+    <div class=" sidebar offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" 
+    aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header text-white border-bottom">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">URT</h5>
+        <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <!--Sidebar Body-->
+      <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
+        <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
+          <li class="nav-item mx-2">
+            <a class="nav-link active text-xs" aria-current="page" href="Competencias.html">Competencias</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Nosotros
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="Tecnologia.html">Tecnologia</a></li>
+              <li><a class="dropdown-item" href="Patrocinadores.html">Patrocinadores</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Contenido
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="Noticias.html">Noticias</a></li>
+              <li><a class="dropdown-item" href="Videos.html">Videos</a></li>
+              <li><a class="dropdown-item" href="Logros.html">Logros</a></li>
+            </ul>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="Contacto.html">Contacto</a>
+          </li>
+          
+        </ul>
+      <!-- Login/Sign Up -->
+      <div class="d-flex flex-column flex-lg-row align-items-center gap-2">
+        <a href="#Login" class="text-white btn btn-sm text-decoration-underline" style="background-color: darkgreen;">Login</a>
+        <a href="#sign up" class="btn btn-sm text-white" style="background-color: darkgreen;">Sign Up</a>
+      </div>
+      </div>
+    </div>
+  </div>
+  
+</nav>
+  <div class="card">
+    <h2>Datos en Tiempo Real</h2>
+    
+    <div class="row">
+      <div class="col-md-6 dato">Velocidad: <span id="velocidad">0</span> km/h</div>
+      <div class="col-md-6 dato">RPM: <span id="rpm">0</span></div>
+      <div class="col-md-6 dato">Temperatura Motor: <span id="temp_motor">0</span> °C</div>
+      <div class="col-md-6 dato">Marcha: <span id="marcha">N</span></div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 dato">Frontal Izquierdo: <span id="fi">0</span> °C</div>
+      <div class="col-md-6 dato">Frontal Derecho: <span id="fd">0</span> °C</div>
+      <div class="col-md-6 dato">Trasero Izquierdo: <span id="ti">0</span> °C</div>
+      <div class="col-md-6 dato">Trasero Derecho: <span id="td">0</span> °C</div>
+    </div>
+  </div>
+
+  <script>
+    const ESP32_IP = "##"; // IP del ESP32 #pendiente
+
+    async function obtenerDatos() {
+      try {
+        const res = await fetch(`${ESP32_IP}/data`);
+        const data = await res.json();
+        document.getElementById("velocidad").textContent = data.velocidad;
+        document.getElementById("rpm").textContent = data.rpm;
+        document.getElementById("temp_motor").textContent = data.temperatura_motor;
+        document.getElementById("marcha").textContent = data.marcha;
+
+        document.getElementById("fi").textContent = data.neumaticos.frontal_izquierdo;
+        document.getElementById("fd").textContent = data.neumaticos.frontal_derecho;
+        document.getElementById("ti").textContent = data.neumaticos.trasero_izquierdo;
+        document.getElementById("td").textContent = data.neumaticos.trasero_derecho;
+      } catch (err) {
+        console.error("Error obteniendo datos del ESP32", err);
+      }
+    }
+
+    setInterval(obtenerDatos, 1000);
+    obtenerDatos();
+  </script>
+</body>
+</html>
+

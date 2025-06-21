@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous">
+  </script>
+  
+    <title>URT</title>
+    <link rel="shortcut icon" type="image/x-icon" href="css_files/img_files/newLogoURT.png">
+    <link rel="stylesheet" href="css_files/inicio.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
+    <link defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js">
+</head>
+<body class="vh-100 overflow-hidden">
+  <!--Navbar datos que divide la pagina-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent text-sm fixed-top"> <!--WE reduce the text-->
+    <div class="container">
+      <!--Logo y nombre-->
+      <a class="navbar-brand fs-4" href="Home.html">
+        <img src="css_files/img_files/newLogoURT.png" 
+        alt="newLogoURT" style="width: 70px; height: auto;">URT</a>
+      <!--button-->
+      <button class="navbar-toggler shadow-none  border-0" type="button" data-bs-toggle="offcanvas" 
+      data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!--Sidebar elementos-->
+      <div class=" sidebar offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" 
+      aria-labelledby="offcanvasNavbarLabel">
+      <!--Sidebar Header-->
+        <div class="offcanvas-header text-white border-bottom">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">URT</h5>
+          <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <!--Sidebar Body-->
+        <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
+          <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
+            <li class="nav-item mx-2">
+              <a class="nav-link active text-xs" aria-current="page" href="Competencias.html">Competencias</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Nosotros
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="Tecnologia.html">Tecnologia</a></li>
+                <li><a class="dropdown-item" href="Patrocinadores.html">Patrocinadores</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Contenido
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="Noticias.html">Noticias</a></li>
+                <li><a class="dropdown-item" href="Videos.html">Videos</a></li>
+                <li><a class="dropdown-item" href="Logros.html">Logros</a></li>
+              </ul>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link" href="Contacto.html">Contacto</a>
+            </li>
+            
+          </ul>
+        <!-- Login/Sign Up -->
+        <div class="d-flex flex-column flex-lg-row align-items-center gap-2">
+          <a href="#Login" class="text-white btn btn-sm text-decoration-underline" style="background-color: darkgreen;">Login</a>
+          <a href="#sign up" class="btn btn-sm text-white" style="background-color: darkgreen;">Sign Up</a>
+        </div>
+        </div>
+      </div>
+    </div>
+    
+  </nav>
+  <div id="carouselExampleCaptions" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="css_files/img_files/imgslide_1.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>"Somos UANL Racing team"</h5>
+          <p>Equipo representativo de la UANL en BajaSAE, conoce mas sobre nosotros</p>
+          <p><a href="Nosotros.html" class="btn btn-warning mt-3">Acerca</a></p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="css_files/img_files/imgslide_2.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>"Explora nuestros logros y motívate a competir."</h5>
+          <p><a href="Logros.html" class="btn btn-warning mt-3">Acerca</a></p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="css_files/img_files/imgslide_3.jfif" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>"Comparte la pasión. Síguenos en redes sociales."</h5>
+          <p><a href="Contacto.html" class="btn btn-warning mt-3">Acerca</a></p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  </div>
+      
+    
+</body>
+</html>
